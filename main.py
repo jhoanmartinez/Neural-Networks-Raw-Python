@@ -1,15 +1,20 @@
-from neural_network import LayerDense
+from neural_network import LayerDense, ReLU
 from dataset import generate_dataset
 
-# Generate dataset
-X_data, y_categories = generate_dataset(3, 3)
+# generate_data(samples_per_category, size_categories)
+X_data, y_category = generate_dataset(3, 2)
 
-# Generate 1 dense layer
-layer_1 = LayerDense(2, 3)
+print("Input data")
+print(X_data)
 
-# Forward pass 1 dense layer
-layer_1.forward(X_data)
+layer1 = LayerDense(2, 4)
 
-# print values
-print(layer_1.output)
+layer1.forward(X_data)
 
+print("output")
+print(layer1.output)
+
+print("outout activated")
+relu1 = ReLU()
+relu1.forward(layer1.output)
+print(relu1.output)
