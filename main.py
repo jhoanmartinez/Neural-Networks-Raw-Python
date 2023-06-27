@@ -1,20 +1,32 @@
+import numpy as np
 from neural_network import LayerDense, ReLU
-from dataset import generate_dataset
+from dataset import generate_dataset, experiment_dataset
 
-# generate_data(samples_per_category, size_categories)
-X_data, y_category = generate_dataset(3, 2)
+# Switch between dataset and a tiny dataset to check process and math
+experiment = 1
 
-print("Input data")
-print(X_data)
+if experiment == 1:
+    # Tiny dataset to validate formulas and process
+    X_data, y_category = experiment_dataset()
+else:
+    # Large dataset generate_data(samples_in_2dimension, number_of_Categories)
+    X_data, y_category = generate_dataset(70, 3)
 
-layer1 = LayerDense(2, 4)
+# Layer dense with two inputs and 3 output values
+layer1 = LayerDense(2, 3)
 
-layer1.forward(X_data)
-
-print("output")
-print(layer1.output)
-
-print("outout activated")
+# ReLU layer
 relu1 = ReLU()
-relu1.forward(layer1.output)
-print(relu1.output)
+
+# Create forward pass
+layer1.forward_layer(X_data)
+
+# ReLU activation
+relu1.forward_relu(layer1.output)
+
+
+
+
+
+
+
