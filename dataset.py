@@ -1,15 +1,5 @@
 import numpy as np
 
-def experiment_dataset():
-    X = [
-        [1, 2],
-        [7, 8],
-        [2, 9]
-    ]
-    y = [0, 1, 2]
-    return X, y
-
-
 def generate_dataset(number_samples, number_classes):
     N = number_samples # number of points per class
     D = 2 # dimensionality
