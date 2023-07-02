@@ -25,8 +25,8 @@ class Softmax:
 class BinaryCrossEntropyLoss:
 
     def forward_BCEL(self, y_pred, y_true):
-        softmax_row = y_pred # [ [0.3, 0.3], [0.4,0.4] ]
-        true_categorie = y_true # [0,0,1,1,2,2]
+        softmax_row = y_pred 
+        true_categorie = y_true 
         if len(true_categorie.shape) == 1:
             values = softmax_row[range(len(y_pred)), true_categorie]
         elif len(true_categorie.shape) == 2:
