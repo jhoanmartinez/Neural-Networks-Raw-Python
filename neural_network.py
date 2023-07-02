@@ -28,9 +28,11 @@ class BinaryCrossEntropyLoss:
         softmax_row = y_pred # [ [0.3, 0.3], [0.4,0.4] ]
         true_categorie = y_true # [0,0,1,1,2,2]
         if len(true_categorie.shape) == 1:
-            body = softmax_row[range(len(y_pred)), true_categorie]
-        elif (true_categorie.shape) == 2:
-            body = np.sum(softmax_row * true_categorie)
-        
-        self.output = body
+            values = softmax_row[range(len(y_pred)), true_categorie]
+        elif len(true_categorie.shape) == 2:
+            values = np.sum(softmax_row * true_categorie, axis=1)
+        likelihood_loss = -np.log(values)
+        mean_loss = np.mean(likelihood_loss)
+        self.output = mean_loss
+        return self.output
         
