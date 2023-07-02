@@ -35,4 +35,15 @@ class BinaryCrossEntropyLoss:
         mean_loss = np.mean(likelihood_loss)
         self.output = mean_loss
         return self.output
+    
+class Accuracy:
+
+    def forward_accuracy(self, inputs_softmax, y_true):
+        arg_max_softmax = np.argmax(inputs_softmax, axis=1)
+        if len(y_true.shape) == 1:
+            accuracy = np.mean(arg_max_softmax == y_true)
+        elif len(y_true.shape) == 2:
+            accuracy = np.mean(arg_max_softmax == y_true, axis=1)
+        self.output = accuracy
+        return self.output
         
