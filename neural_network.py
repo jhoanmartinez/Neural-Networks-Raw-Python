@@ -9,10 +9,12 @@ class LayerDense:
     def forward_layer(self, inputs):
         self.output = np.dot(inputs, self.weights) + self.bias
 
+
 class  ReLU:
 
     def forward_relu(self, inputs):
         self.output = np.maximum(0, inputs)
+
 
 class Softmax:
 
@@ -35,6 +37,7 @@ class BinaryCrossEntropyLoss:
         mean_loss = np.mean(likelihood_loss)
         self.output = mean_loss
         return self.output
+    
     
 class Accuracy:
 

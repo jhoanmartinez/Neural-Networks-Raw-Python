@@ -11,11 +11,11 @@ softmax1 = Softmax()                # Softmax layer
 bce_loss = BinaryCrossEntropyLoss() # Binary cross entropy loss layer
 accuracy = Accuracy()
 
-layer1.forward_layer(X_data)                        # Create forward pass
-relu1.forward_relu(layer1.output)                   # ReLU activation
-softmax1.forward_softmax(relu1.output)              # Softmax activation
-bce_loss.forward_BCEL(softmax1.output, y_category)  # Binary cross entroypy loss
-accuracy.forward_accuracy(softmax1.output, y_category) # Accuracy total
+layer1.forward_layer(X_data)                            # Create forward pass
+relu1.forward_relu(layer1.output)                       # ReLU activation
+softmax1.forward_softmax(relu1.output)                  # Softmax activation
+bce_loss.forward_BCEL(softmax1.output, y_category)      # Binary cross entroypy loss
+accuracy.forward_accuracy(softmax1.output, y_category)  # Accuracy total
 
 print("forward pass =\n",layer1.output)
 print("\nrelu activation =\n", relu1.output)
