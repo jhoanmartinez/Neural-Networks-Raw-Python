@@ -9,7 +9,7 @@ layer1 = LayerDense(2, 3)           # Layer dense with two inputs and 3 output v
 relu1 = ReLU()                      # ReLU layer
 softmax1 = Softmax()                # Softmax layer
 bce_loss = BinaryCrossEntropyLoss() # Binary cross entropy loss layer
-accuracy = Accuracy()
+accuracy = Accuracy()               # Accuracy layer
 
 layer1.forward_layer(X_data)                            # Create forward pass
 relu1.forward_relu(layer1.output)                       # ReLU activation
